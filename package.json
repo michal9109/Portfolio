@@ -2,11 +2,14 @@
   "name": "webpack-project",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://michal9109.github.io/Portfolio/.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.config.js",
     "prod": "webpack --config ./config/webpack.config.prod.js",
-    "dev": "webpack --config ./config/webpack.config.js"
+    "dev": "webpack --config ./config/webpack.config.js",
+    "predeploy": "npm run prod",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.6.0",
     "file-loader": "^4.3.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.8.2",
