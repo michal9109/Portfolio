@@ -1,0 +1,87 @@
+.navigation {
+  padding: 1rem;
+  position: fixed;
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($NightBlue, 1),
+    rgba($NightBlueShadow, 1)
+  );
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-left: 1rem;
+    font-size: 3rem;
+    text-decoration: none;
+    color: $color-white;
+    text-transform: uppercase;
+    position: relative;
+
+    @include hoverEffect;
+
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__div {
+    flex: 0 0 50%;
+    font-size: $default-font-size;
+    transition: opacity 0.7s, visibility 0s;
+
+    @include respond(tab-port) {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 7rem;
+      left: 0;
+      width: 100vw;
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($NightBlue, 1),
+        rgba($NightBlueShadow, 1)
+      );
+    }
+
+    @include respond(phone) {
+      top: 6rem;
+    }
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: space-around;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      padding: 2rem;
+      align-items: flex-start;
+    }
+  }
+  &__item {
+    list-style: none;
+    @include respond(tab-port) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+    display: block;
+    position: relative;
+
+    @include hoverEffect;
+  }
+}

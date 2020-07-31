@@ -1,0 +1,64 @@
+.header {
+  height: 100vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($Second-color, 0.9),
+      rgba($Second-color-light, 0.9)
+    ),
+    url(../img/computer-4795762_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: $color-white;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+  }
+
+  &__text-box {
+    padding: 2rem;
+  }
+  &__text-box:nth-child(1) {
+    margin-top: auto;
+  }
+  &__title {
+    font-size: 3rem;
+
+    @include respond(phone) {
+      font-size: 2.5rem;
+    }
+  }
+  &__subtitle {
+    font-size: 2rem;
+
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
+  }
+  &__button-box {
+    margin-top: auto;
+  }
+}
+
+.header__text-box span {
+  animation: glow-in 0.8s both;
+}
+
+@keyframes glow-in {
+  from {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+    text-shadow: 0 0 2.5rem white;
+  }
+  75% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
