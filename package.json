@@ -40,6 +40,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "jquery": "^3.5.1"
+    "gsap": "^3.4.2"
   }
 }

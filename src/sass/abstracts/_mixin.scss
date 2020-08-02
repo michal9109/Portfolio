@@ -44,3 +44,20 @@
     transform-origin: left;
   }
 }
+
+@mixin btnprojects {
+  position: absolute;
+  font-size: 2rem;
+  background-color: $color-main-blue;
+  min-width: 25%;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    background: lighten($color-main-blue, 10%);
+  }
+}

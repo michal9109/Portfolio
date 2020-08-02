@@ -1,10 +1,57 @@
 import "./sass/index.scss";
+
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";
 import "@fortawesome/fontawesome-free/js/brands";
-import $ from "jquery";
 
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+const aboutImg = document.querySelector(".section-about__content");
+
+gsap.fromTo(
+  aboutImg.children,
+  { y: "+=100", opacity: 0 },
+  {
+    y: "0",
+    opacity: 1,
+    stagger: 0.5,
+    duration: 1,
+    ease: "easeInOut",
+    scrollTrigger: {
+      trigger: ".section-about",
+      start: "top 30%",
+      markers: true,
+    },
+  }
+);
+//project
+const projectsImg = document.querySelectorAll(".section-projects__box-p");
+
+projectsImg.forEach((img) => {
+  gsap.fromTo(
+    img,
+    { y: "+=100", opacity: 0 },
+    {
+      y: "0",
+      opacity: 1,
+      stagger: 0.5,
+      duration: 1,
+
+      ease: "easeInOut",
+      scrollTrigger: {
+        trigger: ".section-projects",
+        start: "top 30%",
+      },
+    }
+  );
+});
+
+//hamburger menu
 const hamburger = document.querySelector(".navigation__hamburger");
 const nav = document.querySelector(".navigation__div");
 
@@ -59,27 +106,19 @@ glowInTexts.forEach((glowInText) => {
 });
 
 ///// scroll
-
-function scroll(e) {
-  var href = $(this).attr("href");
-
-  e.preventDefault();
-
-  $("html, body").animate(
-    {
-      scrollTop: $(href).offset().top,
-    },
-    600
-  );
-
-  location.hash = href;
-}
-
-$('a[href^="#"]').click(scroll);
+document
+  .querySelectorAll(".navigation__item", ".navigation__title")
+  .forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: "#section" + (index + 1), offsetY: 20 },
+      });
+    });
+  });
 
 // img
 const imgeffect = document.querySelectorAll(".section-projects__img");
-const live = document.querySelectorAll(".section-projects__live");
 
 imgeffect.forEach((el) => {
   el.addEventListener("click", () => {

@@ -47,7 +47,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({}),
     new HtmlWebpackPlugin({
       template: "src/templates/template.html",
       title: "nowa aplikacja",
