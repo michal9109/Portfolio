@@ -25,7 +25,6 @@ gsap.fromTo(
     scrollTrigger: {
       trigger: ".section-about",
       start: "top 30%",
-      markers: true,
     },
   }
 );
