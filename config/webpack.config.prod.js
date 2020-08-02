@@ -16,52 +16,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.txt$/,
-        use: "raw-loader",
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          url: true,
-        },
-      },
-      {
-        test: /\.(sass|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: { loader: "url-loader?limit=100000" },
-      },
-      {
-        test: /\.(png|jpg)$/,
-        loader: "url-loader",
+        test: /\.s?[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: "css-loader", options: { url: false, sourceMap: true } },
+          { loader: "sass-loader", options: { sourceMap: true } },
+        ],
       },
       {
         test: /\.(jpg|png|svg|gif|jpeg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name][contenthash:6].[ext]",
-              outputPath: "images",
-            },
-          },
-          // {
-          //   loader: "image-webpack-loader",
-          //   options: {
-          //     mozjpeg: {
-          //       quality: 70,
-          //       progressive: true,
-          //     },
-          //   },
-          // },
-        ],
+        use: "file-loader",
       },
       {
         test: /\.js$/,
@@ -83,7 +47,7 @@ module.exports = {
       title: "nowa aplikacja",
     }),
     new MiniCssExtractPlugin({
-      filename: "[name]-[contenthash].css",
+      filename: "style/[name]-[contenthash].css",
     }),
     new CopyPlugin([
       {

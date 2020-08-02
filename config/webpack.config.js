@@ -24,23 +24,9 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          url: true,
-        },
-      },
-
-      {
         test: /\.(sass|scss)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
-
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: { loader: "url-loader?limit=100000" },
-      },
-
       {
         test: /\.(jpg|png|svg|gif|jpeg)$/,
         use: "file-loader",
