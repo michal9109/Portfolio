@@ -6,6 +6,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "production",
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   entry: {
     main: "./src/index.js",
   },
@@ -13,6 +18,7 @@ module.exports = {
     filename: "js/[name]-[contenthash].js",
     path: path.resolve(__dirname, "../", "build"),
   },
+  devtool: false,
   module: {
     rules: [
       {
